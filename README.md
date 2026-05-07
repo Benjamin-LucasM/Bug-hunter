@@ -1,4 +1,4 @@
-# Snake + Highscore Server
+# Snake + Highscore server
 
 Et snake spill i terminalen som lagrer highscores i en database.
 
