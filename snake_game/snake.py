@@ -171,9 +171,10 @@ def game_loop(win):
             food = spawn_food(snake)
             if speed > 0.05:
                 speed -= 0.002
-            win.clear()
         else:
             snake.pop()
+
+        win.clear()
 
         # Draw everything
         draw_border(win)
