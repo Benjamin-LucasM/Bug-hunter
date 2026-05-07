@@ -10,7 +10,7 @@ SERVER_URL = "http://localhost:5000"
 
 # Game settings
 WIDTH = 40
-HEIGHT = 20
+HEIGHT = 15
 INITIAL_SPEED = 0.15
 
 
@@ -53,8 +53,8 @@ def draw_score(win, score):
 
 def spawn_food(snake):
     while True:
-        y = random.randint(1, HEIGHT - 1)
-        x = random.randint(1, WIDTH - 1)
+        y = random.randint(1, HEIGHT - 2)
+        x = random.randint(1, WIDTH - 2)
         if (y, x) not in snake:
             return (y, x)
 
