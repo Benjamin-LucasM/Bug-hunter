@@ -76,7 +76,10 @@ def get_new_direction(key, current_direction):
     }
 
     if key in directions:
-        return directions[key]
+        new_dir = directions[key]
+        if (new_dir[0] * -1, new_dir[1] * -1) == current_direction:
+            return current_direction
+        return new_dir
     return current_direction
 
 
