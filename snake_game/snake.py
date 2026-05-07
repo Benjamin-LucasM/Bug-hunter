@@ -51,10 +51,10 @@ def draw_score(win, score):
     win.addstr(0, 2, f" Score: {score} ")
 
 
-def spawn_food(snake):
+def spawn_food(snake, height, width):
     while True:
-        y = random.randint(1, HEIGHT - 2)
-        x = random.randint(1, WIDTH - 2)
+        y = random.randint(1, height - 2)
+        x = random.randint(1, width - 2)
         if (y, x) not in snake:
             return (y, x)
 
@@ -134,10 +134,13 @@ def game_loop(win):
     win.nodelay(True)
     win.keypad(True)
 
+    HEIGHT, WIDTH = win.getmaxyx() #endring
+    HEIGHT -= 1
+
     # Starting snake position
     snake = [(HEIGHT // 2, WIDTH // 2), (HEIGHT // 2, WIDTH // 2 - 1), (HEIGHT // 2, WIDTH // 2 - 2)]
     direction = (0, 1)
-    food = spawn_food(snake)
+    food = spawn_food(snake, HEIGHT, WIDTH)
     score = 0
     speed = INITIAL_SPEED
     last_move_time = time.time()
@@ -171,7 +174,7 @@ def game_loop(win):
 
         if new_head == food:
             score += 10
-            food = spawn_food(snake)
+            food = spawn_food(snake, HEIGHT, WIDTH)
             if speed > 0.05:
                 speed -= 0.002
         else:
