@@ -6,7 +6,7 @@ import time
 import requests
 
 
-SERVER_URL = "http://localhost:5000"
+SERVER_URL = "http://localhost:3000"
 
 # Game settings
 WIDTH = 40
